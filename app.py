@@ -35,7 +35,7 @@ if uploaded_file is not None and user_openai_api_key is not None:
     with open(filename, "wb") as f:
         f.write(uploaded_file.getbuffer())
     # Show a success message
-    st.success(f"Saved file '{filename}' to disk.")
+    st.success(f"Saved file '{filename}' to disk. Please Wait , File Is Processing.")
     raw_text = ''
 
     for i, page in enumerate(reader.pages):
@@ -43,7 +43,7 @@ if uploaded_file is not None and user_openai_api_key is not None:
         if text:
             raw_text += text
 
-    st.write("your file is ready to be processed")
+    st.write("your file is ready to be processed and now is splitting into text, please wait...")
 
     text_splitter = RecursiveCharacterTextSplitter( 
         chunk_size = 2000,
@@ -106,7 +106,7 @@ def generate_answer():
     st.session_state.history.append({"message": user_message, "is_user": True})
     st.session_state.history.append({"message": message_bot, "is_user": False})
 
-if pdf_output is 'Bot Is Online ✅':
+if pdf_output:
     st.text_input("Type A Specific Message", key="input_text", on_change=generate_answer)
 
 for chat in st.session_state.history[::-1]:
