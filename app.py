@@ -24,6 +24,7 @@ st.write("You can get yours from here - https://beta.openai.com/account/api-keys
 st.subheader("Step 2: Upload your PDF file")
 uploaded_file = st.file_uploader("Choose a file")
 
+st.subheader("This error will automatically go once the file is uploaded 😅")
 # if uploaded_file is not None and user_openai_api_key is not None:
 if uploaded_file is not None and user_openai_api_key is not None:
 
@@ -51,6 +52,7 @@ if uploaded_file is not None and user_openai_api_key is not None:
     texts = text_splitter.split_text(raw_text)
 
     st.write("File is split into chunks: ", len(texts))
+     pdf_output = st.success("Bot Is Online ✅")
 
     embeddings = OpenAIEmbeddings(openai_api_key=user_openai_api_key)
 
