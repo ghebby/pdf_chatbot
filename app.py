@@ -104,8 +104,8 @@ def generate_answer():
     st.session_state.history.append({"message": user_message, "is_user": True})
     st.session_state.history.append({"message": message_bot, "is_user": False})
 
-
-st.text_input("Type A Specific Message", key="input_text", on_change=generate_answer)
+if pdf_output is 'Bot Is Online ✅':
+    st.text_input("Type A Specific Message", key="input_text", on_change=generate_answer)
 
 for chat in st.session_state.history[::-1]:
     st_message(**chat)  # unpacking
