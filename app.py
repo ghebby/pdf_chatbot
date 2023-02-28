@@ -16,15 +16,18 @@ st.title("PDF to chatbot")
 
 st.write("This app will help you to create a chatbot from a PDF file")
 
-st.subheader("Step 1: 🔑 Setup your OpenAI API Key")
+# st.subheader("Step 1: 🔑 Setup your OpenAI API Key")
 # ask for a user text input
-user_openai_api_key = st.text_input("Enter your OpenAI API Key",placeholder="OPENAI_API_KEY",value="")
-st.write("You can get yours from here - https://beta.openai.com/account/api-keys")
+# user_openai_api_key = st.text_input("Enter your OpenAI API Key",placeholder="OPENAI_API_KEY",value="")
+# st.write("You can get yours from here - https://beta.openai.com/account/api-keys")
 
 st.subheader("Step 2: 📤 Upload your PDF file")
 uploaded_file = st.file_uploader("Choose a file")
 
-st.write("Error : ❌ No Pdf File Found")
+user_openai_api_key = st.secrets["user_api_key"]
+
+if uploaded_file is None and user_openai_api_key is None:
+    st.write("Error : ❌ No Pdf File Found")
 # if uploaded_file is not None and user_openai_api_key is not None:
 if uploaded_file is not None and user_openai_api_key is not None:
 
