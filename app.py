@@ -35,7 +35,7 @@ if uploaded_file is not None and user_openai_api_key is not None:
     with open(filename, "wb") as f:
         f.write(uploaded_file.getbuffer())
     # Show a success message
-    st.success(f"Saved file '{filename}' to disk. Please Wait , File Is Processing.")
+#     st.success(f"Saved file '{filename}' to disk. Please Wait , File Is Processing.")
     raw_text = ''
 
     for i, page in enumerate(reader.pages):
@@ -43,15 +43,15 @@ if uploaded_file is not None and user_openai_api_key is not None:
         if text:
             raw_text += text
 
-    st.write("your file is ready to be processed and now is splitting into text, please wait...")
+#     st.write("your file is ready to be processed and now is splitting into text, please wait...")
 
     text_splitter = RecursiveCharacterTextSplitter( 
-        chunk_size = 2000,
+        chunk_size = 1000,
         chunk_overlap  = 0
     )
     texts = text_splitter.split_text(raw_text)
 
-    st.write("File is split into chunks: ", len(texts))
+#     st.write("File is split into chunks: ", len(texts))
     pdf_output = st.success("Bot Is Online ✅")
 
     embeddings = OpenAIEmbeddings(openai_api_key=user_openai_api_key)
@@ -108,7 +108,7 @@ def generate_answer():
 
 if pdf_output:
 #     st.text_input("Type A Specific Message", key="input_text", on_change=generate_answer)
-    st.text_input("Type A Specific Message", key="input_text")
+    st.text_input("Type A Specific Message", key="input_text",on_change=None)
     if st.button("Tell me about it", type="primary"):
         generate_answer()
 
