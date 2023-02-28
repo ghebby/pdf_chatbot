@@ -75,7 +75,7 @@ def generate_output(user_prompt):
     docs = docsearch.similarity_search(user_prompt)
     response = docs[0].page_content
 
-    chain = load_qa_chain(OpenAI(openai_api_key=user_openai_api_key,temperature=0), chain_type="map_reduce")
+    chain = load_qa_chain(OpenAI(openai_api_key=user_openai_api_key,temperature=0), chain_type="stuff")
     ai_output = chain.run(input_documents=docs, question=user_prompt)
 
     # # query="Minimum Dimension OF Kitchen"
