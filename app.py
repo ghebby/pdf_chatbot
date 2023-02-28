@@ -128,9 +128,10 @@ if pdf_output:
     if st.button("Tell me about it", type="primary"):
         generate_answer()
         num_messages += 1
+        if num_messages >= 3:
+            st.text_input("Sorry :", value="Chat is now disabled", key="input_text", disabled=True)
 
-    if num_messages >= 3:
-        st.text_input("Enter message:", value="Chat is now disabled", key="input_text", disabled=True)
+    
 
 for chat in st.session_state.history[::-1]:
     st_message(**chat)  # unpacking
