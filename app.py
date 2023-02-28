@@ -124,12 +124,13 @@ if pdf_output:
 
     st.write("Welcome to the chat! You can send up to 3 messages.")
     num_messages = 0
-    user_input = st.text_input("Enter message:", key="input_text")
-    if st.button("Tell me about it", type="primary"):
-        generate_answer()
+    if num_messages <2 :
+        user_input = st.text_input("Enter message:", key="input_text")
         num_messages += 1
-        if num_messages >= 3:
-            st.text_input("Sorry :", value="Chat is now disabled", key="input_text", disabled=True)
+        if st.button("Tell me about it", type="primary"):
+            generate_answer()
+    else num_messages >= 2:
+        st.text_input("Sorry :", value="Chat is now disabled", key="input_text", disabled=True)
 
     
 
