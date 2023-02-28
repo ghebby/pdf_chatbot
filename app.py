@@ -16,9 +16,9 @@ st.title("PDF to chatbot")
 
 st.write("This app will help you to create a chatbot from a PDF file")
 
-st.subheader("Step 1: 🔑 Setup your OpenAI API Key")
+# st.subheader("Step 1: 🔑 Setup your OpenAI API Key")
 # ask for a user text input
-user_openai_api_key = st.text_input("Enter your OpenAI API Key",placeholder="OPENAI_API_KEY",value="")
+# user_openai_api_key = st.text_input("Enter your OpenAI API Key",placeholder="OPENAI_API_KEY",value="")
 # st.write("You can get yours from here - https://beta.openai.com/account/api-keys")
 
 st.subheader("Step 1: 📤 Upload your PDF file")
