@@ -82,8 +82,9 @@ def generate_output(user_prompt):
 
     chain = load_qa_chain(OpenAI(openai_api_key=user_openai_api_key,temperature=0), chain_type="stuff")
     Base_Prompt = '''You are an AI assistant that provides answers from the given document and only from the document! If the answer is not in the document, say "Hmm, I am not sure". Never try to come up with an answer if the info is not in the document. Reply in the same language as the question.''' 
-
-    ai_output = chain.run(input_documents=docs, question=Base_Prompt+" "+user_prompt)
+    Final_Question = Base_Prompt+" "+user_prompt
+    
+    ai_output = chain.run(input_documents=docs, question=Final_Question)
     # # query="Minimum Dimension OF Kitchen"
     # ai_output = qa.run(user_prompt)
     ai_output = ai_output.replace("\n\n--","").replace("\n--","").strip()
