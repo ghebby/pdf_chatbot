@@ -125,14 +125,14 @@ if pdf_output:
         st.write("Welcome to the chat! You can send up to 10 messages.")
 
         while num_messages < 10:
-            user_input = st.text_input("Enter message:", key=input_text)
+            user_input = st.text_input("Enter message:", key="input_text")
             if user_input:
                 st.write("You:", user_input)
                 num_messages += 1
 
             # Disable input after 10 messages
             if num_messages == 10:
-                st.text_input("Enter message:", value="Chat is now disabled", key=input_text, disabled=True)
+                st.text_input("Enter message:", value="Chat is now disabled", key="input_text", disabled=True)
 
     chat_interface()
 
