@@ -129,7 +129,7 @@ if pdf_output:
             if user_input:
                 st.write("You:", user_input)
                 num_messages += 1
-                 if st.button("Tell me about it", type="primary"):
+                if st.button("Tell me about it", type="primary"):
                     generate_answer()
 
             # Disable input after 10 messages
