@@ -129,7 +129,7 @@ if pdf_output:
         num_messages += 1
         if st.button("Tell me about it", type="primary"):
             generate_answer()
-    else num_messages >= 2:
+    else:
         st.text_input("Sorry :", value="Chat is now disabled", key="input_text", disabled=True)
 
     
