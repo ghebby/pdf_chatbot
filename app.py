@@ -21,7 +21,7 @@ st.subheader("Step 1: 🔑 Setup your OpenAI API Key")
 user_openai_api_key = st.text_input("Enter your OpenAI API Key",placeholder="OPENAI_API_KEY",value="")
 # st.write("You can get yours from here - https://beta.openai.com/account/api-keys")
 
-st.subheader("Step 2: 📤 Upload your PDF file")
+st.subheader("Step 1: 📤 Upload your PDF file")
 uploaded_file = st.file_uploader("Choose a file")
 
 user_openai_api_key = st.secrets["user_api_key"]
@@ -114,7 +114,7 @@ def generate_answer():
 
 if pdf_output:
 #     st.text_input("Type A Specific Message", key="input_text", on_change=generate_answer)
-    input_text = st.text_input("Type A Specific Message")
+    st.text_input("Type A Specific Message", key="input_text")
     if st.button("Tell me about it", type="primary"):
         generate_answer()
 
