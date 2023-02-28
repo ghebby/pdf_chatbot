@@ -16,15 +16,15 @@ st.title("PDF to chatbot")
 
 st.write("This app will help you to create a chatbot from a PDF file")
 
-st.subheader("Step 1: Setup your OpenAI API Key")
+st.subheader("Step 1: 🔑 Setup your OpenAI API Key")
 # ask for a user text input
 user_openai_api_key = st.text_input("Enter your OpenAI API Key",placeholder="OPENAI_API_KEY",value="")
 st.write("You can get yours from here - https://beta.openai.com/account/api-keys")
 
-st.subheader("Step 2: Upload your PDF file")
+st.subheader("Step 2: 📤 Upload your PDF file")
 uploaded_file = st.file_uploader("Choose a file")
 
-st.subheader("This error will automatically go once the file is uploaded 😅")
+st.write("Error : ❌ No Pdf File Found")
 # if uploaded_file is not None and user_openai_api_key is not None:
 if uploaded_file is not None and user_openai_api_key is not None:
 
@@ -52,7 +52,7 @@ if uploaded_file is not None and user_openai_api_key is not None:
     texts = text_splitter.split_text(raw_text)
 
 #     st.write("File is split into chunks: ", len(texts))
-    pdf_output = st.success("Bot Is Online ✅")
+    pdf_output = st.success("🤖 Bot Is Online ✅")
 
     embeddings = OpenAIEmbeddings(openai_api_key=user_openai_api_key)
 
@@ -108,7 +108,7 @@ def generate_answer():
 
 if pdf_output:
 #     st.text_input("Type A Specific Message", key="input_text", on_change=generate_answer)
-    st.text_input("Type A Specific Message", key="input_text",on_change=None)
+    input_text = st.text_input("Type A Specific Message")
     if st.button("Tell me about it", type="primary"):
         generate_answer()
 
