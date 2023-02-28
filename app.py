@@ -115,7 +115,28 @@ def generate_answer():
 
 if pdf_output:
 #     st.text_input("Type A Specific Message", key="input_text", on_change=generate_answer)
-    st.text_input("Type A Specific Message", key="input_text")
+
+
+    def chat_interface():
+        # Initialize variables
+        user_input = ''
+        num_messages = 0
+
+        st.write("Welcome to the chat! You can send up to 10 messages.")
+
+        while num_messages < 10:
+            user_input = st.text_input("Enter message:", key=input_text)
+            if user_input:
+                st.write("You:", user_input)
+                num_messages += 1
+
+            # Disable input after 10 messages
+            if num_messages == 10:
+                st.text_input("Enter message:", value="Chat is now disabled", key=input_text, disabled=True)
+
+    chat_interface()
+
+#     st.text_input("Type A Specific Message", key="input_text")
     if st.button("Tell me about it", type="primary"):
         generate_answer()
 
