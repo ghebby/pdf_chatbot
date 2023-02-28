@@ -122,23 +122,19 @@ if pdf_output:
 #     user_input = ''
     
 
-    st.write("Welcome to the chat! You can send up to 10 messages.")
+    st.write("Welcome to the chat! You can send up to 3 messages.")
     num_messages = 0
-    
-    
-    def chat_interface():
-        nonlocal num_messages
-        user_input = st.text_input("Enter message:", key="input_text")
-        if st.button("Tell me about it", type="primary"):
-            generate_answer()
-            num_messages += 1
+    user_input = st.text_input("Enter message:", key="input_text")
+    if st.button("Tell me about it", type="primary"):
+        generate_answer()
+        num_messages += 1
 
-        if num_messages >= 3:
-            st.text_input("Enter message:", value="Chat is now disabled", key="input_text", disabled=True)
+    if num_messages >= 3:
+        st.text_input("Enter message:", value="Chat is now disabled", key="input_text", disabled=True)
 
-    for chat in st.session_state.history[::-1]:
-        st_message(**chat)  # unpacking
-    chat_interface()
+for chat in st.session_state.history[::-1]:
+    st_message(**chat)  # unpacking
+ 
     
     
     
