@@ -107,7 +107,10 @@ def generate_answer():
     st.session_state.history.append({"message": message_bot, "is_user": False})
 
 if pdf_output:
-    st.text_input("Type A Specific Message", key="input_text", on_change=generate_answer)
+#     st.text_input("Type A Specific Message", key="input_text", on_change=generate_answer)
+    st.text_input("Type A Specific Message", key="input_text")
+    if st.button("Tell me about it", type="primary"):
+        generate_answer()
 
 for chat in st.session_state.history[::-1]:
     st_message(**chat)  # unpacking
