@@ -129,6 +129,8 @@ if pdf_output:
             if user_input:
                 st.write("You:", user_input)
                 num_messages += 1
+                 if st.button("Tell me about it", type="primary"):
+                    generate_answer()
 
             # Disable input after 10 messages
             if num_messages == 10:
@@ -137,8 +139,8 @@ if pdf_output:
     chat_interface()
 
 #     st.text_input("Type A Specific Message", key="input_text")
-    if st.button("Tell me about it", type="primary"):
-        generate_answer()
+#     if st.button("Tell me about it", type="primary"):
+#         generate_answer()
 
 for chat in st.session_state.history[::-1]:
     st_message(**chat)  # unpacking
