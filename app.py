@@ -52,7 +52,7 @@ if uploaded_file is not None and user_openai_api_key is not None:
 #     st.write("your file is ready to be processed and now is splitting into text, please wait...")
 
     text_splitter = RecursiveCharacterTextSplitter( 
-        chunk_size = 1000,
+        chunk_size = 250,
         chunk_overlap  = 0
     )
     texts = text_splitter.split_text(raw_text)
