@@ -125,12 +125,12 @@ if pdf_output:
     st.write("Welcome to the chat! You can send up to 10 messages.")
 
     while num_messages < 10:
-        if user_input:
-            user_input = st.text_input("Enter message:", key="input_text")
+#         if user_input:
+        user_input = st.text_input("Enter message:", key="input_text")
 #             st.write("You:", user_input)
-            if st.button("Tell me about it", type="primary"):
-                generate_answer()
-                num_messages += 1
+        if st.button("Tell me about it", type="primary"):
+            generate_answer()
+            num_messages += 1
             
 
         # Disable input after 10 messages
