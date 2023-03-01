@@ -115,8 +115,8 @@ def generate_answer():
 
 if pdf_output:
     st.text_input("Type A Specific Message", key="input_text",on_change=None)
-    if st.button("Tell me about it", type="primary"):
-        generate_answer()
+if st.button("Tell me about it", type="primary"):
+    generate_answer()
 
     
 
