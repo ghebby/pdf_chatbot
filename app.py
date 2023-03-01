@@ -27,10 +27,10 @@ uploaded_file = st.file_uploader("Choose a file")
 user_openai_api_key = st.secrets["user_api_key"]
 
 if user_openai_api_key is None:
-    st.write("Error : ❌ No Api Key Found")
+    st.warning("Error : ❌ No Api Key Found")
 
 if uploaded_file is None:
-    st.write("Error : ❌ No Pdf File Found")
+    st.warning("Error : ❌ No Pdf File Found")
 # if uploaded_file is not None and user_openai_api_key is not None:
 if uploaded_file is not None and user_openai_api_key is not None:
 
