@@ -14,7 +14,7 @@ import os
 
 st.title("Turn Your PDF To Chatbot")
 
-st.write("This app will help you answer your questions based on your PDF")
+st.write("This app will help you answer questions based on your PDF")
 
 # st.subheader("Step 1: 🔑 Setup your OpenAI API Key")
 # ask for a user text input
