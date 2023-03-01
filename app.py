@@ -114,7 +114,7 @@ def generate_answer():
     st.session_state.history.append({"message": message_bot, "is_user": False})
 
 if pdf_output:
-    st.text_input("Type A Specific Message", key="input_text")
+    st.text_input("Type A Specific Message", key="input_text",disabled=True)
     if st.button("Tell me about it", type="primary"):
         generate_answer()
 
