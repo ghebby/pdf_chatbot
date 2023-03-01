@@ -12,9 +12,9 @@ from langchain.vectorstores import Chroma
 import pickle
 import os
 
-st.title("PDF to chatbot")
+st.title("Turn Your PDF To Chatbot")
 
-st.write("This app will help you to create a chatbot from a PDF file")
+st.write("This app will help you answer any questions from your PDF file")
 
 # st.subheader("Step 1: 🔑 Setup your OpenAI API Key")
 # ask for a user text input
