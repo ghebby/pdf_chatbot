@@ -6,9 +6,9 @@ from langchain.vectorstores import FAISS
 from langchain.chains.question_answering import load_qa_chain
 from langchain.llms import OpenAI
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain import VectorDBQA
-from langchain.llms import OpenAI
-from langchain.vectorstores import Chroma
+# from langchain import VectorDBQA
+# from langchain.llms import OpenAI
+# from langchain.vectorstores import Chroma
 from langchain.llms import OpenAIChat
 import pickle
 import os
