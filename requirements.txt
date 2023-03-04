@@ -1,7 +1,7 @@
-langchain==0.0.101
-PyPDF2==3.0.1
-streamlit==1.19.0
-streamlit_chat==0.0.2.1
+langchain
+PyPDF2
+streamlit
+streamlit_chat
 openai
 faiss-cpu
 tiktoken
