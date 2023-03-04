@@ -9,6 +9,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain import VectorDBQA
 from langchain.llms import OpenAI
 from langchain.vectorstores import Chroma
+from langchain.llms import OpenAIChat
 import pickle
 import os
 
@@ -79,14 +80,26 @@ def generate_output(user_prompt):
     docsearch = FAISS.from_texts(texts, new_docsearch)
     docs = docsearch.similarity_search(user_prompt)
     response = docs[0].page_content
-
-    chain = load_qa_chain(OpenAI(openai_api_key=user_openai_api_key,temperature=0), chain_type="stuff")
-    Base_Prompt = '''You are an AI assistant that provides answers from the given document and only from the document! If the answer is not in the document, say "Hmm, I am not sure". Never try to come up with an answer if the info is not in the document. Reply in the same language as the question.''' 
-    Final_Question = Base_Prompt+" "+user_prompt
     
-    ai_output = chain.run(input_documents=docs, question=Final_Question)
+    #OPENAI CHATGPT MODEL
+    prefix_messages = [
+    {"role": "system", "content": "You are a helpful AI Tutor."},
+    {"role": "user", "content": "I am student, I want to learn from this pdf file and i want you to give me answer which i will ask you"},
+    {"role": "assistant", "content": "Thats awesome, what do you want to know about"},]
+
+
+    chain = load_qa_chain(OpenAIChat(openai_api_key=user_openai_api_key,temperature=0,prefix_messages=prefix_messages), chain_type="stuff")
+    ai_output = chain.run(input_documents=docs, question=user_prompt)
+    
+    #OPENAI DAVINICI MODEL
+#     chain = load_qa_chain(OpenAI(openai_api_key=user_openai_api_key,temperature=0), chain_type="stuff")
+#     Base_Prompt = '''You are an AI assistant that provides answers from the given document and only from the document! If the answer is not in the document, say "Hmm, I am not sure". Never try to come up with an answer if the info is not in the document. Reply in the same language as the question.''' 
+#     Final_Question = Base_Prompt+" "+user_prompt
+    
+#     ai_output = chain.run(input_documents=docs, question=Final_Question)
     # # query="Minimum Dimension OF Kitchen"
     # ai_output = qa.run(user_prompt)
+    
     ai_output = ai_output.replace("\n\n--","").replace("\n--","").strip()
     return ai_output,response
     
