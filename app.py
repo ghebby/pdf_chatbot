@@ -13,6 +13,36 @@ from langchain.llms import OpenAIChat
 import pickle
 import os
 
+#sidebar
+feedback_url = "https://forms.gle/LwqkLVuxdggkjFU59"
+share_url = "https://t.co/vQmbVhNyoH"
+
+with st.sidebar:
+    st.markdown("# About 🙏")
+    st.markdown(
+        "Introducing our revolutionary 🤖 PDF chatbot! Say goodbye to endless scrolling \n"
+        "and searching through long PDF documents. Our chatbot allows you to have a conversation with  \n"
+        "your PDF and get the information you need in seconds.🤝 \n"
+        "With easy integration into your existing systems, our PDF chatbot is the perfect solution for businesses and individuals alike. \n"
+        "Try it out today and experience the future of PDF interaction.📚\n"
+        )
+    st.markdown(
+        "Unline chatGPT, PDFBOT can't make stuff up\n"
+        "and will only answer from injected knowlege 📖 \n"
+    )
+    st.markdown("---")
+    st.markdown("A side project by Aenish Shrestha")
+    st.image(aenish_pic.jpeg, width=60)
+
+    st.markdown("---")
+    st.markdown("Give feedback [here](%s)" %feedback_url)
+    st.markdown("---")
+    st.markdown("Find Me [here](%s)" %share_url)
+    st.markdown("---")
+
+
+
+
 st.title("Turn Your PDF To Chatbot")
 
 st.write("This app will help you answer questions based on your PDF")
