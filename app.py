@@ -26,23 +26,22 @@ with st.sidebar:
     st.markdown("# About 🙏")
     st.markdown(
         "Introducing our revolutionary 🤖 PDF chatbot! Say goodbye to endless scrolling \n"
-        "and searching through long PDF documents. Our chatbot allows you to have a conversation with  \n"
-        "your PDF and get the information you need in seconds.🤝 \n"
+        "and searching through long PDF documents. Our chatbot allows you to have a\n"
+        "conversation with your PDF and get the information you need in seconds.🤝 \n"
         "With easy integration into your existing systems, our PDF chatbot is the perfect solution for businesses and individuals alike. \n"
         "Try it out today and experience the future of PDF interaction.📚\n"
         )
     st.markdown(
-        "Unline chatGPT, PDFBOT can't make stuff up\n"
+        "Unlike chatGPT, PDFBOT can't make stuff up\n"
         "and will only answer from injected knowlege 📖 \n"
     )
     st.markdown("---")
-    st.markdown("A side project by Aenish Shrestha")
+    st.markdown("🧑‍💻 A side project by Aenish Shrestha")
     st.image(aenish_pic, width=60)
-
     st.markdown("---")
-    st.markdown("Give feedback [here](%s)" %feedback_url)
+    st.markdown("😊 Give feedback [here](%s)" %feedback_url)
     st.markdown("---")
-    st.markdown("Find Me [here](%s)" %share_url)
+    st.markdown("🔎 Find Me [here](%s)" %share_url)
     st.markdown("---")
 
 
@@ -162,7 +161,7 @@ def generate_answer():
     st.session_state.history.append({"message": message_bot, "is_user": False})
 
 if pdf_output:
-    st.text_input("Type A Specific Message", key="input_text",on_change=None)
+    st.text_input("Type A Specific Message","Who are you?" key="input_text")
     if st.button("Tell me about it", type="primary"):
         generate_answer()
 
