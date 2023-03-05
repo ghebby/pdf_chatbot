@@ -10,8 +10,13 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 # from langchain.llms import OpenAI
 # from langchain.vectorstores import Chroma
 from langchain.llms import OpenAIChat
+from PIL import Image
 import pickle
 import os
+
+st.set_page_config(page_title="PDFBot", page_icon="🤖", layout="wide")
+
+aenish_pic = Image.open('./aenish_pic.jpeg')
 
 #sidebar
 feedback_url = "https://forms.gle/LwqkLVuxdggkjFU59"
@@ -32,7 +37,7 @@ with st.sidebar:
     )
     st.markdown("---")
     st.markdown("A side project by Aenish Shrestha")
-    st.image(aenish_pic.jpeg, width=60)
+    st.image(aenish_pic, width=60)
 
     st.markdown("---")
     st.markdown("Give feedback [here](%s)" %feedback_url)
