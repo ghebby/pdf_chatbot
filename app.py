@@ -164,7 +164,8 @@ if pdf_output:
     st.text_input("Type A Specific Message","Who are you?", key="input_text")
     if st.button("Tell me about it", type="primary"):
         generate_answer()
-
+else :
+    st.warning("📚 Please Upload Your PDF.")
     
 
 for chat in st.session_state.history[::-1]:
