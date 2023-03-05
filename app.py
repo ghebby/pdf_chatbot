@@ -117,8 +117,8 @@ def generate_output(user_prompt):
     
     #OPENAI CHATGPT MODEL
     prefix_messages = [
-    {"role": "system", "content": "You are a helpful AI Tutor."},
-    {"role": "user", "content": "I am student, I want to learn from this pdf file and i want you to give me answer which i will ask you"},
+    {"role": "system", "content": "You are a helpful AI bibliophile Tutor."},
+    {"role": "user", "content": "I am student, I want to learn from this book , so you can give me answers based on this file also if i aks you to do mathematical conversions,translation you can do it in professional way. I want you to help me with this file in your 100% effort."},
     {"role": "assistant", "content": "Thats awesome, what do you want to know about"},]
 
 
