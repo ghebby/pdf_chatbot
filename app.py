@@ -14,6 +14,8 @@ from PIL import Image
 import pickle
 import os
 
+pdf_output = None
+
 st.set_page_config(page_title="PDFBot", page_icon="🤖", layout="wide")
 
 aenish_pic = Image.open('./aenish_pic.jpeg')
@@ -165,7 +167,7 @@ if pdf_output:
     if st.button("Tell me about it", type="primary"):
         generate_answer()
 else :
-    st.warning("📚 Please Upload Your PDF.")
+    st.write("📚 Please Upload Your PDF.")
     
 
 for chat in st.session_state.history[::-1]:
