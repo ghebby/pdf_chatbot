@@ -94,19 +94,29 @@ if uploaded_file is not None and user_openai_api_key is not None:
         text = page.extract_text()
         if text:
             raw_text += text
+    
+    st.write("Characters : ",len(raw_text))
 
-#     st.write("your file is ready to be processed and now is splitting into text, please wait...")
+    rate_limit_pdf = 300000
 
-    text_splitter = RecursiveCharacterTextSplitter( 
-        chunk_size = 750,
-        chunk_overlap  = 0
-    )
-    texts = text_splitter.split_text(raw_text)
+    if len(raw_text)>rate_limit_pdf:
+        st.warning("Sorry Your File Is Too Big. 😔")
 
-#     st.write("File is split into chunks: ", len(texts))
-    pdf_output = st.success("🤖 Bot Is Online ✅")
+    
+    else:
+        
+    #     st.write("your file is ready to be processed and now is splitting into text, please wait...")
 
-    embeddings = OpenAIEmbeddings(openai_api_key=user_openai_api_key)
+        text_splitter = RecursiveCharacterTextSplitter( 
+            chunk_size = 750,
+            chunk_overlap  = 0
+        )
+        texts = text_splitter.split_text(raw_text)
+
+    #     st.write("File is split into chunks: ", len(texts))
+        pdf_output = st.success("🤖 Bot Is Online ✅")
+
+        embeddings = OpenAIEmbeddings(openai_api_key=user_openai_api_key)
 
 # if filename is not None:
     # st.write("Your {} Bot Is Online 🟢".format(filename))
