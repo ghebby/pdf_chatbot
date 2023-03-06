@@ -171,7 +171,9 @@ else :
     
 
 for chat in st.session_state.history[::-1]:
-    st_message(**chat)  # unpacking
+#     st_message(**chat)  # unpacking
+# Fix Duplicate streamlit keys
+    st_message(key='input_text', **chat) 
  
     
     
