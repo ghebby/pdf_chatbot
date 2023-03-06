@@ -1,5 +1,6 @@
 import streamlit as st
-from streamlit_chat import message as st_message
+# from streamlit_chat import message as st_message
+from streamlit_chat import message
 from PyPDF2 import PdfReader
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import FAISS
