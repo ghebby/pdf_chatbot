@@ -13,6 +13,7 @@ from langchain.llms import OpenAIChat
 from PIL import Image
 import pickle
 import os
+import random
 
 pdf_output = None
 
@@ -47,6 +48,13 @@ with st.sidebar:
     st.markdown("---")
 
 
+# random user picture
+user_av = random.randint(0, 100)
+
+# random bott picture
+bott_av = random.randint(0, 100)
+    
+    
 
 
 st.title("Turn Your PDF To Chatbot")
@@ -140,16 +148,16 @@ def generate_output(user_prompt):
     return ai_output,response
     
 
-#enable Chat 
-if "history" not in st.session_state:
-    st.session_state.history = []
+# #enable Chat 
+# if "history" not in st.session_state:
+#     st.session_state.history = []
 
 
 
 
-def generate_answer():
+def generate_answer(user_message):
     
-    user_message = st.session_state.input_text
+#     user_message = st.session_state.input_text
     tokenizer,result= generate_output(user_message)
     # inputs = tokenizer(st.session_state.input_text, return_tensors="pt")
     # result = model.generate(**inputs)
@@ -159,23 +167,59 @@ def generate_answer():
     message_bot = tokenizer
 
 
-    st.session_state.history.append({"message": user_message, "is_user": True})
-    st.session_state.history.append({"message": message_bot, "is_user": False})
+#     st.session_state.history.append({"message": user_message, "is_user": True})
+#     st.session_state.history.append({"message": message_bot, "is_user": False})
+    return message_bot
+
+# if pdf_output:
+#     st.text_input("Type A Specific Message","Who are you?", key="input_text")
+#     if st.button("Tell me about it", type="primary"):
+#         generate_answer()
+# else :
+#     st.write("📚 Please Upload Your PDF.")
+    
+
+# for chat in st.session_state.history[::-1]:
+# #     st_message(**chat)  # unpacking
+# # Fix Duplicate streamlit keys
+#     st_message(key='input_text', **chat) 
+ 
+   
+    
+# Storing the chat
+if 'generated' not in st.session_state:
+    st.session_state['generated'] = []
+
+if 'past' not in st.session_state:
+    st.session_state['past'] = []
+
+def clear_text():
+    st.session_state["input"] = ""
+
+# We will get the user's input by calling the get_text function
+def get_text():
+    input_text = st.text_input("Type A Specific Message","Who are you?", key="input")
+    return input_text
+
+
+
+user_input = get_text()
 
 if pdf_output:
-    st.text_input("Type A Specific Message","Who are you?", key="input_text")
-    if st.button("Tell me about it", type="primary"):
-        generate_answer()
+    if user_input:
+        output = generate_answer(user_input)
+
+        # store the output 
+        st.session_state.past.append(user_input)
+        st.session_state.generated.append(output)
 else :
     st.write("📚 Please Upload Your PDF.")
-    
 
-for chat in st.session_state.history[::-1]:
-#     st_message(**chat)  # unpacking
-# Fix Duplicate streamlit keys
-    st_message(key='input_text', **chat) 
- 
-    
+
+if st.session_state['generated']:
+    for i in range(len(st.session_state['generated'])-1, -1, -1):
+        message(st.session_state["generated"][i],seed=bott_av , key=str(i))
+        message(st.session_state['past'][i], is_user=True,avatar_style="adventurer",seed=user_av, key=str(i) + '_user')
     
     
     
