@@ -204,9 +204,10 @@ def get_text():
 
 
 
-user_input = get_text()
+
 
 if pdf_output:
+    user_input = get_text()
     if user_input:
         output = generate_answer(user_input)
 
