@@ -15,6 +15,7 @@ from PIL import Image
 import pickle
 import os
 import random
+import streamlit.components.v1 as components
 
 pdf_output = None
 
@@ -234,7 +235,7 @@ if st.session_state['generated']:
         message(st.session_state['past'][i], is_user=True,avatar_style="adventurer",seed=user_av, key=str(i) + '_user')
     
     
-    
+components.iframe("https://aenishshrestha.substack.com/embed",height=500)
     
     
     
