@@ -166,7 +166,6 @@ def generate_output(user_prompt):
 
 
 
-@st.cache_data
 def generate_answer(user_message):
     
 #     user_message = st.session_state.input_text
