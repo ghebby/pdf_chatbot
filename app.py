@@ -69,7 +69,7 @@ st.write("This app will help you answer questions based on your PDF")
 # st.write("You can get yours from here - https://beta.openai.com/account/api-keys")
 
 st.subheader("Step 1: 📤 Upload your PDF file")
-uploaded_file = st.file_uploader("Choose a file")
+uploaded_file = st.file_uploader("Choose a file",type=["pdf"])
 
 user_openai_api_key = st.secrets["user_api_key"]
 
