@@ -122,7 +122,7 @@ if uploaded_file is not None and user_openai_api_key is not None:
 # if filename is not None:
     # st.write("Your {} Bot Is Online 🟢".format(filename))
 
-@st.cache_data
+
 def generate_output(user_prompt):
     # docsearch = Chroma.from_documents(texts,embeddings)
     # qa = VectorDBQA.from_chain_type(llm=OpenAI(),chain_type="stuff",vectorstore=docsearch)
