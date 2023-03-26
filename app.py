@@ -98,7 +98,7 @@ if uploaded_file is not None and user_openai_api_key is not None:
     
     st.write("Characters : ",len(raw_text))
 
-    rate_limit_pdf = 500000
+    rate_limit_pdf = 1000000
 
     if len(raw_text)>rate_limit_pdf:
         st.warning("Sorry Your File Is Too Big. 😔")
