@@ -57,8 +57,7 @@ user_av = random.randint(0, 100)
 bott_av = random.randint(0, 100)
     
     
-
-
+st.markdown("We are migrating to [PdfBot](https://pdfbot.streamlit.app/) soon.")
 st.title("Turn Your PDF To Chatbot")
 
 st.write("This app will help you answer questions based on your PDF")
@@ -98,7 +97,7 @@ if uploaded_file is not None and user_openai_api_key is not None:
     
     st.write("Characters : ",len(raw_text))
 
-    rate_limit_pdf = 1000000
+    rate_limit_pdf = 500000
 
     if len(raw_text)>rate_limit_pdf:
         st.warning("Sorry Your File Is Too Big. 😔")
